@@ -13,7 +13,7 @@ var canceled = make(chan struct{})
 func main() {
 	t := time.Now()
 	fmt.Println("Hello World!")
-	timer1 := time.NewTimer(10 * time.Second)
+	//timer1 := time.NewTimer(10 * time.Second)
 
 	go func() {
 		signalChanel := make(chan os.Signal, 1)
@@ -28,7 +28,7 @@ func main() {
 	}()
 
 	select {
-	case <-timer1.C:
+	case <-time.After(10 * time.Second):
 		fmt.Println("GoodBye World!")
 	case <-canceled:
 		fmt.Printf("Stopped by the user after %v seconds\n", time.Since(t))
