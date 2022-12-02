@@ -13,7 +13,6 @@ var canceled = make(chan struct{})
 func main() {
 	t := time.Now()
 	fmt.Println("Hello World!")
-	//timer1 := time.NewTimer(10 * time.Second)
 
 	go func() {
 		signalChanel := make(chan os.Signal, 1)
