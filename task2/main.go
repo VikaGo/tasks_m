@@ -1,13 +1,28 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"sort"
 )
 
-func MiniMaxSum(arr []int) (int, int) {
+func main() {
+	a, b, err := MiniMaxSum([]int{1, 2, 3, 4, 5})
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println(a)
+	fmt.Println(b)
+}
+
+func MiniMaxSum(arr []int) (int, int, error) {
 	var _arr []int
 	var i, j int
+
+	if len(arr) == 0 {
+		return 0, 0, errors.New("arr cant be nil")
+	}
 
 	arrayLength := len(arr)
 
@@ -23,13 +38,6 @@ func MiniMaxSum(arr []int) (int, int) {
 	}
 
 	sort.Ints(_arr)
-	return _arr[0], _arr[arrayLength-1]
-
-}
-
-func main() {
-	a, b := MiniMaxSum([]int{1, 2, 3, 4, 5})
-	fmt.Println(a)
-	fmt.Println(b)
+	return _arr[0], _arr[arrayLength-1], nil
 
 }
