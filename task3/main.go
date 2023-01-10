@@ -9,7 +9,7 @@ const layout1 = "03:04:05PM"
 const layout2 = "15:04:05"
 
 func main() {
-	militaryTime, err := ConvertToMilitaryTime("12:03:54AM")
+	militaryTime, err := ConvertToMilitaryTime("00:03:12")
 	if err != nil {
 		fmt.Println(err)
 		return

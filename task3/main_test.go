@@ -19,25 +19,25 @@ func TestConvertToMilitaryTime(t *testing.T) {
 			name:    "time1",
 			args:    args{time12format: "12:03:16PM"},
 			want:    "12:03:16",
-			wantErr: true,
+			wantErr: false,
 		},
 		{
 			name:    "time2",
 			args:    args{time12format: "12:45:13AM"},
 			want:    "00:45:13",
-			wantErr: true,
+			wantErr: false,
 		},
 		{
 			name:    "time3",
 			args:    args{time12format: ""},
 			want:    "",
-			wantErr: false,
+			wantErr: true,
 		},
 		{
 			name:    "time4",
 			args:    args{time12format: "11:48:54PM"},
 			want:    "23:48:54",
-			wantErr: true,
+			wantErr: false,
 		},
 	}
 	for _, tt := range tests {
